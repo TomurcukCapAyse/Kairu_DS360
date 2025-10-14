@@ -12,3 +12,19 @@ stages:
       hash: md5
       md5: 6a7a2ed01936ef56e903ba2bb2f6fbc6
       size: 57910
+  clean_data:
+    cmd: python src/clean_data.py
+    deps:
+    - path: data/raw/titanic.csv
+      hash: md5
+      md5: 6a7a2ed01936ef56e903ba2bb2f6fbc6
+      size: 57910
+    - path: src/clean_data.py
+      hash: md5
+      md5: 4e3ff7161369427c232c2bdfa3976ff3
+      size: 2491
+    outs:
+    - path: data/processed/titanic_processed.csv
+      hash: md5
+      md5: 8d905f529bbc35f976f74534367c9630
+      size: 75094
