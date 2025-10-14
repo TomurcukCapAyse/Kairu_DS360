@@ -1,0 +1,58 @@
+schema: '2.0'
+stages:
+  download_data:
+    cmd: python src/download_data.py
+    deps:
+    - path: src/download_data.py
+      hash: md5
+      md5: b91d8fc1ecb3b4ec15f2f920e8b90c02
+      size: 694
+    outs:
+    - path: data/raw/titanic.csv
+      hash: md5
+      md5: 6a7a2ed01936ef56e903ba2bb2f6fbc6
+      size: 57910
+  clean_data:
+    cmd: python src/clean_data.py
+    deps:
+    - path: data/raw/titanic.csv
+      hash: md5
+      md5: 6a7a2ed01936ef56e903ba2bb2f6fbc6
+      size: 57910
+    - path: src/clean_data.py
+      hash: md5
+      md5: 4e3ff7161369427c232c2bdfa3976ff3
+      size: 2491
+    outs:
+    - path: data/processed/titanic_processed.csv
+      hash: md5
+      md5: 8d905f529bbc35f976f74534367c9630
+      size: 75094
+  train_model:
+    cmd: python src/train_model.py
+    deps:
+    - path: data/processed/titanic_processed.csv
+      hash: md5
+      md5: 8d905f529bbc35f976f74534367c9630
+      size: 75094
+    - path: src/train_model.py
+      hash: md5
+      md5: a991a60a879f9c70d69762ffe20b9405
+      size: 2700
+    outs:
+    - path: models/features.json
+      hash: md5
+      md5: 7c69ac3d4dc4c09f3dd2fecfebe252f2
+      size: 159
+    - path: models/logistic_regression_model.pkl
+      hash: md5
+      md5: b3f003833378a91f6515836ff129ed1d
+      size: 1391
+    - path: models/metrics.json
+      hash: md5
+      md5: 1ab3128760d61dde35d9ec8c0ffe179a
+      size: 152
+    - path: models/random_forest_model.pkl
+      hash: md5
+      md5: 7df09afffb3b36e738a32f556dba40d5
+      size: 1663433
