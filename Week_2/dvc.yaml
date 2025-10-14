@@ -4,7 +4,7 @@ stages:
     deps:
       - src/download_data.py
     outs:
-      - data/raw/data.csv
+      - data/raw/titanic.csv
 
   clean_data:
     cmd: python src/clean_data.py
