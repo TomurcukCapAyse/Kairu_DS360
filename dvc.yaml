@@ -4,15 +4,15 @@ stages:
     deps:
       - src/download_data.py
     outs:
-      - data/raw/data.csv
+      - data/raw/titanic.csv
 
   clean_data:
     cmd: python src/clean_data.py
     deps:
       - src/clean_data.py
-      - data/raw/data.csv
+      - data/raw/titanic.csv
     outs:
-      - data/clean/data_clean.csv    
+      - data/processed/titanic_processed.csv    
 
   train_model:
     cmd: python src/train_model.py
