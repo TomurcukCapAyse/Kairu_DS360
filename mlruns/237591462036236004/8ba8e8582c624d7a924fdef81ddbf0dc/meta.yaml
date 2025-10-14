@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/eyyupcap/Desktop/Ay%C5%9Fe/VS%20Code/Kairu_DS360/Week_2/mlruns/237591462036236004/8ba8e8582c624d7a924fdef81ddbf0dc/artifacts
+end_time: 1760481756656
+entry_point_name: ''
+experiment_id: '237591462036236004'
+lifecycle_stage: active
+run_id: 8ba8e8582c624d7a924fdef81ddbf0dc
+run_name: random_forest_experiment
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760481746877
+status: 3
+tags: []
+user_id: eyyupcap
