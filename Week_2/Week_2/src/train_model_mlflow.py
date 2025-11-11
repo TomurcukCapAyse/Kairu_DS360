@@ -16,8 +16,8 @@ def train_with_mlflow():
     df = pd.read_csv('C:/Users/eyyupcap/Desktop/Ayşe/VS Code/Kairu_DS360/Week_2/data/processed/titanic_processed.csv' )
 
     # X ve y'yi ayır - seaborn dataset kolonlarına göre güncellendi
-    feature_cols = ['pclaass', 'sex_encoded', 'age', 'sibsp', 'parch',
-                    'fare', 'embarked_encoded', 'family_size', 'is_alone', 'age_encoded']
+    feature_cols = ['pclass', 'sex_encoded', 'age', 'sibsp', 'parch',
+                    'fare', 'embarked_encoded', 'family_size', 'is_alone', 'age_group_encoded']
     X = df[feature_cols]
     y = df['survived']
 
