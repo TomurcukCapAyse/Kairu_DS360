@@ -1,0 +1,27 @@
+stages:
+  download_data:
+    cmd: python download_data.py
+    deps:
+      - download_data.py
+    outs:
+      - data/raw/iris.csv
+
+  clean_data:
+    cmd: python clean_data.py
+    deps:
+      - clean_data.py
+      - data/raw/iris.csv
+    outs:
+      - data/processed/iris_processed.csv
+
+  train_model:
+    cmd: python train_model.py
+    deps:
+      - train_model.py
+      - data/processed/iris_processed.csv
+    outs:
+      - models/iris_logistic_regression_model.pkl
+      - models/iris_random_forest_model.pkl
+    metrics:
+      - models/iris_model_metrics.json:
+          cache: false

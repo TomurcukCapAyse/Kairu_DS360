@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/eyyupcap/Desktop/Ay%C5%9Fe/VS%20Code/Kairu_DS360/Week_2/mlruns/237591462036236004/models/m-f6e8b8d3876342dda48d88759e5b9e5e/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.4.0
+model_id: m-f6e8b8d3876342dda48d88759e5b9e5e
+model_size_bytes: 1655433
+model_uuid: m-f6e8b8d3876342dda48d88759e5b9e5e
+prompts: null
+run_id: 8ba8e8582c624d7a924fdef81ddbf0dc
+utc_time_created: '2025-10-14 22:42:27.348744'

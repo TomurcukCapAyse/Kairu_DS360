@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/eyyupcap/Desktop/Ay%C5%9Fe/VS%20Code/Kairu_DS360/Week_2/mlruns/237591462036236004/573027b4d5704be89bf58e343cf6c8ed/artifacts
+end_time: 1760481761479
+entry_point_name: ''
+experiment_id: '237591462036236004'
+lifecycle_stage: active
+run_id: 573027b4d5704be89bf58e343cf6c8ed
+run_name: logistic_regression_experiment
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760481756670
+status: 3
+tags: []
+user_id: eyyupcap

@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/eyyupcap/Desktop/Ay%C5%9Fe/VS%20Code/Kairu_DS360/Week_2/mlruns/237591462036236004/models/m-76ab4628d701401e91a282c10755faef/artifacts
+creation_timestamp: 1760481757513
+experiment_id: '237591462036236004'
+last_updated_timestamp: 1760481761410
+model_id: m-76ab4628d701401e91a282c10755faef
+model_type: null
+name: model
+source_run_id: 573027b4d5704be89bf58e343cf6c8ed
+status: 2
+status_message: null
