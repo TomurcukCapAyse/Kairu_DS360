@@ -30,13 +30,14 @@ ENV/
 .ipynb_checkpoints
 
 # Data files (tüm veri dosyalarını ignore et)
-data/
+data/*
 *.csv
 *.json
 *.xlsx
 *.parquet
 *.feather
-!data/sample_data.csv
+
+!data/.gitkeep
 
 # Models (ignore models/ directory but keep artifacts/)
 models/
