@@ -4,8 +4,12 @@ Aptala anlat: Veriyi oku , özetle , hedef dağılımına bak , leakage kolonlar
 """
 
 import pandas as pd
+import os
 
-DATA_PATH = "/Users/eyyupcap/Desktop/Ayşe/VS Code/Kairu_DS360/Week_3/data/loan_data.csv"
+# Platform bağımsız yol
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_dir = os.path.dirname(script_dir)
+DATA_PATH = os.path.join(project_dir, 'data', 'loan_data.csv')
 
 def perform_eda():
     df = pd.read_csv(DATA_PATH)

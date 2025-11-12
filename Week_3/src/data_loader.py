@@ -1,5 +1,6 @@
 import pandas as pd
 import kagglehub
+import os
 
 def download_loan_data():
     """
@@ -18,17 +19,24 @@ def load_data():
     Loads the loan data from the downloaded CSV file into a pandas DataFrame.
 
     """
-    import os
 
-    # Data klasörünü oluştur
-    os.makedirs('../data', exist_ok=True)
+    # Data klasörünü oluştur - yolu belirle
+    script_dir = os.path.dirname(os.path.abspath(__file__))  # src klasörü
+    project_dir = os.path.dirname(script_dir)  # Week_3 klasörü
+    data_dir = os.path.join(project_dir, 'data')
+    local_file = os.path.join(data_dir, 'loan_data.csv')
 
-    try:
-        # Önce yerel dosyayı kontrol et
-        df = pd.read_csv('../data/loan_data.csv')
-        print("Data loaded from local file.")
+    os.makedirs(data_dir, exist_ok=True)
+    print(f"📁 Data klasörü: {data_dir}")
+    print(f"📄 Aranan dosya: {local_file}")
 
-    except:
+
+    # Önce yerel dosyayı kontrol et
+    if os.path.exists(local_file):
+        df = pd.read_csv(local_file)
+        print("✅ Data loaded from local file.")
+    else:
+
         print("Kaggle'den veri indiriliyor...")
         dataset_path = download_loan_data()
 
@@ -42,7 +50,7 @@ def load_data():
             df = pd.read_csv(os.path.join(dataset_path, csv_files[0]))
 
             # Verinin yerel kopyasını kaydet
-            df.to_csv('../data/loan_data.csv', index=False)
+            df.to_csv(local_file, index=False)
             print("Data loaded from downloaded file and saved locally.")
         else:
             raise Exception("No CSV file found in the downloaded dataset.")

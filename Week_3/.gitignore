@@ -29,22 +29,31 @@ ENV/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Data files (ignore large datasets but keep essential ones)
-data/*.csv
-data/*.json
-data/*.xlsx
+# Data files (tüm veri dosyalarını ignore et)
+data/
+*.csv
+*.json
+*.xlsx
+*.parquet
+*.feather
 !data/sample_data.csv
-!data/loan_data.csv
 
 # Models (ignore models/ directory but keep artifacts/)
 models/
 *.pkl
 *.joblib
+*.h5
+*.pt
+*.pth
 
 # Keep artifacts for deployment
 !artifacts/
 !artifacts/*.pkl
 !artifacts/*.json
+
+# Kaggle cache
+.kaggle/
+kagglehub/
 
 # Streamlit
 .streamlit/
@@ -52,7 +61,13 @@ models/
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+logs/
