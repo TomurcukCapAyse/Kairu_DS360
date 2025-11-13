@@ -53,7 +53,7 @@ def load_data() -> pd.DataFrame:
     return pd.read_csv(p)
 
 def make_xy(df: pd.DataFrame):
-    y = df[TARGET_COL].replace({
+    y = df[TARGET_COL].map({
         "PAIDOFF": 1,
         "COLLECTION": 0,
         "COLLECTION_PAIDOFF": 0

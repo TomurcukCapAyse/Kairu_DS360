@@ -1,5 +1,5 @@
 """
-trarin.py
+train.py
 A) class_weight = "balanced" (LR) + XGB(scale_pos_weight)
 B) Random undersampling (LR + XGB)
 C) SMOTE (LR + XGB)
