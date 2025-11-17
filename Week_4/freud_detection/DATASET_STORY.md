@@ -73,6 +73,58 @@ normal_amounts = data[data['Class']==0]['Amount']
 # V1, V2, V3 zaman bazlı patterns içerebilir
 # V10, V16, V17 tutar-related features olabilir
 ```
+
+---
+
+## 🚨 Business Impact Senaryoları
+
+### Senaryo 1: Konservatif Yaklaşım
+- **Threshold**: 0.1 (düşük)
+- **Sonuç**: %95 fraud yakalanır, %8 false positive
+- **Maliyet**: Yüksek müşteri deneyimi sorunu
+
+### Senaryo 2: Dengeli Yaklaşım  
+- **Threshold**: 0.3 (optimal)
+- **Sonuç**: %85 fraud yakalanır, %2 false positive
+- **Maliyet**: En iyi cost-benefit ratio
+
+### Senaryo 3: Agresif Yaklaşım
+- **Threshold**: 0.7 (yüksek)
+- **Sonuç**: %60 fraud yakalanır, %0.5 false positive
+- **Maliyet**: Yüksek finansal kayıp
+
+---
+
+## 🔬 Model Development Journey
+
+### Fase 1: Baseline Models
+```python
+# Logistic Regression: ROC-AUC ~0.93, PR-AUC ~0.65
+# Random Forest: ROC-AUC ~0.95, PR-AUC ~0.75
+# XGBoost: ROC-AUC ~0.96, PR-AUC ~0.80
+```
+
+### Fase 2: Outlier Detection
+```python
+# Isolation Forest: ROC-AUC ~0.85 (unsupervised)
+# Local Outlier Factor: ROC-AUC ~0.80
+# One-Class SVM: ROC-AUC ~0.75
+```
+
+### Fase 3: Advanced Techniques
+```python
+# SMOTE + XGBoost: PR-AUC ~0.85
+# Cost-sensitive learning: Precision-Recall balance
+# Ensemble methods: Voting classifier stability
+```
+
+---
+
+## 📈 Expected Performance Benchmarks
+
+### Outlier Detection (Unsupervised)
+- **Isolation Forest**: ROC-AUC: 0.82-0.88
+- **LOF**: ROC-AUC: 0.78-0.85  
 - **Ensemble**: ROC-AUC: 0.85-0.90
 
 ### Supervised Learning
