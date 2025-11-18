@@ -32,7 +32,7 @@ def download_creditcard_fraud():
             df = pd.read_csv(csv_file)
             logger.info(f"Data Shape: {df.shape}")
             logger.info(f"Columns: {list(df.columns)}")
-            logger.info(f"Class distribution :\n {df['class'].value_counts()}")
+            logger.info(f"Class distribution :\n {df['Class'].value_counts()}")
 
             # Copy to project data directory
             data_dir = "data/raw"
