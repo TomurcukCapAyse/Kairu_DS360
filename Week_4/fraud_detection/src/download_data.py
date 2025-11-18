@@ -35,7 +35,7 @@ def download_creditcard_fraud():
             logger.info(f"Class distribution :\n {df['Class'].value_counts()}")
 
             # Copy to project data directory
-            data_dir = "data/raw"
+            data_dir = "fraud_detection/data/raw"
             os.makedirs(data_dir, exist_ok=True)
 
             target_path = os.path.join(data_dir, "creditcard_fraud.csv")
@@ -64,8 +64,8 @@ def main():
     print("="*60)
 
     # Create Data directories
-    os.makedirs("data/raw", exist_ok=True)
-    os.makedirs("data/processed", exist_ok=True)
+    os.makedirs("fraud_detection/data/raw", exist_ok=True)
+    os.makedirs("fraud_detection/data/processed", exist_ok=True)
 
     # Download Credit Card Fraud dataset
     result, df = download_creditcard_fraud()
