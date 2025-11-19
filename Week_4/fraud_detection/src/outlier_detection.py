@@ -11,6 +11,7 @@ from pathlib import Path
 import os, json
 import numpy as np
 import pandas as pd
+from sklearn.utils import resample
 
 from sklearn.ensemble import IsolationForest
 from sklearn.neighbors import LocalOutlierFactor
@@ -20,7 +21,7 @@ from sklearn.metrics import roc_auc_score, average_precision_score, precision_re
 DATA_DIR = Path("fraud_detection/data/processed"); DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # >>>>> HAM VERİ YOLU <<<<<
-RAW_PATH = Path("/Users/eyyupcap/Desktop/Ayşe/VS Code/Kairu_DS360/Week_4/fraud_detection/data/raw/creditcard_fraud.csv")
+RAW_PATH = Path(r"C:\Users\eyyupcap\Desktop\Ayşe\VS Code\Kairu_DS360\Week_4\fraud_detection\data\raw\creditcard_fraud.csv")
 
 OUT_CSV  = DATA_DIR / "dataset_with_anomaly_scores_raw.csv"
 OUT_META = DATA_DIR / "outlier_meta_raw.json"
@@ -74,7 +75,7 @@ def main():
           f"| Alarm oranı={if_alarm_test.mean():.4f}")
     
     # --- LOF (novelty=True, ham) ---
-    lof = LocalOutlierFactor(n_neighbors=35, contamination="auto", novelty=True)
+    lof = LocalOutlierFactor(n_neighbors=20, contamination="auto", novelty=True)
     lof.fit(X_train)
     lof_scores_train = -lof.score_samples(X_train)     # yüksek = anomali
     lof_scores_test  = -lof.score_samples(X_test)
