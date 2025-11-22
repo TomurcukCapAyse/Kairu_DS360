@@ -24,8 +24,8 @@ def create_m5_subset():
     print("=" * 50)
     
     # Çıktı klasörlerini oluştur
-    os.makedirs('./artifacts/datasets', exist_ok=True)
-    os.makedirs('./artifacts/figures', exist_ok=True)
+    os.makedirs('./P1_data_preparation/artifacts/datasets', exist_ok=True)
+    os.makedirs('./P1_data_preparation/artifacts/figures', exist_ok=True)
     
     # 1. Veri dosyalarını oku
     print("\n📁 1. Veri dosyaları okunuyor...")
@@ -127,8 +127,8 @@ def create_m5_subset():
     print("\n💾 6. Sonuçlar kaydediliyor...")
     
     # CSV dosyaları
-    train_path = './artifacts/datasets/train.csv'
-    valid_path = './artifacts/datasets/valid.csv'
+    train_path = './P1_data_preparation/artifacts/datasets/train.csv'
+    valid_path = './P1_data_preparation/artifacts/datasets/valid.csv'
     
     train_df.to_csv(train_path)
     valid_df.to_csv(valid_path)
@@ -179,7 +179,7 @@ def create_m5_subset():
     plt.tight_layout()
     
     # Kaydet
-    figure_path = './artifacts/figures/overall_daily_sales.png'
+    figure_path = './P1_data_preparation/artifacts/figures/overall_daily_sales.png'
     plt.savefig(figure_path, dpi=300, bbox_inches='tight')
     print(f"   ✓ Grafik: {figure_path}")
     
@@ -204,7 +204,7 @@ def create_m5_subset():
               f"Std={stats['std']:.1f}, Max={stats['max']:.0f}")
     
     print(f"\n✅ İşlem tamamlandı!")
-    print(f"📁 Çıktılar: ./artifacts/ klasöründe")
+    print(f"📁 Çıktılar: ./P1_data_preparation/artifacts/ klasöründe")
     
     return train_df, valid_df, daily_total
 
