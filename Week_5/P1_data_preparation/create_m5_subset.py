@@ -33,18 +33,18 @@ def create_m5_subset():
     try:
         # Sales verisi
         print("   • sales_train_validation.csv okunuyor...")
-        sales_df = pd.read_csv('/Users/yaseminarslan/Desktop/ds360_ikincihafta/hafta5/data/sales_train_validation.csv')
+        sales_df = pd.read_csv('/Users/eyyupcap/Desktop/Ayşe/VS Code/Kairu_DS360/Week_5/data/sales_train_validation.csv')
         print(f"   ✓ Satış verisi: {sales_df.shape}")
         
         # Calendar verisi
         print("   • calendar.csv okunuyor...")
-        calendar_df = pd.read_csv('/Users/yaseminarslan/Desktop/ds360_ikincihafta/hafta5/data/calendar.csv')
+        calendar_df = pd.read_csv('/Users/eyyupcap/Desktop/Ayşe/VS Code/Kairu_DS360/Week_5/data/calendar.csv')
         calendar_df['date'] = pd.to_datetime(calendar_df['date'])
         print(f"   ✓ Takvim verisi: {calendar_df.shape}")
         
         # Prices verisi (opsiyonel, kullanmayacağız ama kontrol edelim)
         try:
-            prices_df = pd.read_csv('/Users/yaseminarslan/Desktop/ds360_ikincihafta/hafta5/data/sell_prices.csv')
+            prices_df = pd.read_csv('/Users/eyyupcap/Desktop/Ayşe/VS Code/Kairu_DS360/Week_5/data/sell_prices.csv')
             print(f"   ✓ Fiyat verisi: {prices_df.shape}")
         except FileNotFoundError:
             print("   ⚠️  Fiyat verisi bulunamadı (isteğe bağlı)")
@@ -72,7 +72,46 @@ def create_m5_subset():
         print("   ⚠️  FOODS kategorisi bulunamadı, tüm kategorileri kullanıyoruz...")
         foods_sales = ca1_sales.copy()
     
-    # 3. En yüksek satışlı 5 ürünü bul
+        # 3. Veriyi günlük formata dönüştür ve en yüksek satışlı 5 ürünü bul
+    print("\n📊 3. Veriler günlük formata dönüştürülüyor...")
+    
+    # Satış verilerini uzun formata dönüştür
+    id_vars = ['id', 'item_id', 'dept_id', 'cat_id', 'store_id', 'state_id']
+    sales_long = pd.melt(foods_sales, 
+                        id_vars=id_vars,
+                        var_name='d', 
+                        value_name='sales')
+    
+    # d_1, d_2 gibi sütunları takvim ile eşleştir
+    sales_long = sales_long.merge(calendar_df[['d', 'date']], on='d', how='left')
+    
+    # En yüksek satışlı 5 ürünü bul
+    total_sales_by_item = sales_long.groupby('item_id')['sales'].sum().sort_values(ascending=False)
+    top_5_items = total_sales_by_item.head(5).index.tolist()
+    print(f"   • En çok satılan 5 ürün: {', '.join(top_5_items)}")
+    
+    # Sadece en yüksek satışlı 5 ürünü filtrele
+    top_sales = sales_long[sales_long['item_id'].isin(top_5_items)].copy()
+    
+    # 4. Veriyi temizle ve hazırla
+    print("\n🧹 4. Veriler düzenleniyor...")
+    
+    # Günlük zaman serisi formatına dönüştür
+    complete_df = top_sales[['date', 'item_id', 'sales']].copy()
+    
+    # Tüm olası tarih-ürün kombinasyonlarını oluştur
+    all_dates = calendar_df['date'].unique()
+    all_dates_sorted = sorted(all_dates)
+    
+    # Train/validation split için tarihler
+    split_date = all_dates_sorted[-28]  # Son 28 gün validation
+    train_end_date = all_dates_sorted[-29]  # Train sonu
+    
+    print(f"   • Toplam {len(all_dates_sorted)} gün, split tarihi: {split_date.strftime('%Y-%m-%d')}")
+    
+    # 5. Train ve validation setlerini oluştur
+    print("\n🔄 5. Train ve validation setleri oluşturuluyor...")
+    
     # Train ve validation setleri
     train_df = complete_df[complete_df['date'] <= train_end_date].copy()
     valid_df = complete_df[complete_df['date'] >= split_date].copy()
@@ -85,7 +124,7 @@ def create_m5_subset():
     valid_df = valid_df.set_index('date')
     
     # 7. Çıktıları kaydet
-    print("\n💾 7. Sonuçlar kaydediliyor...")
+    print("\n💾 6. Sonuçlar kaydediliyor...")
     
     # CSV dosyaları
     train_path = './artifacts/datasets/train.csv'
@@ -98,7 +137,7 @@ def create_m5_subset():
     print(f"   ✓ Valid verisi: {valid_path}")
     
     # 8. Görselleştirme
-    print("\n📊 8. Günlük toplam satış grafiği oluşturuluyor...")
+    print("\n📊 7. Günlük toplam satış grafiği oluşturuluyor...")
     
     # Günlük toplam satış hesapla
     daily_total = complete_df.groupby('date')['sales'].sum().reset_index()
