@@ -100,14 +100,15 @@ def create_m5_subset():
     complete_df = top_sales[['date', 'item_id', 'sales']].copy()
     
     # Tüm olası tarih-ürün kombinasyonlarını oluştur
-    all_dates = calendar_df['date'].unique()
-    all_dates_sorted = sorted(all_dates)
+    # Gerçek veri tarih aralığını kullan
+    actual_dates = complete_df['date'].unique()
+    actual_dates_sorted = sorted(actual_dates)
     
-    # Train/validation split için tarihler
-    split_date = all_dates_sorted[-28]  # Son 28 gün validation
-    train_end_date = all_dates_sorted[-29]  # Train sonu
+    # Train/validation split için tarihler (gerçek veri üzerinden)
+    split_date = actual_dates_sorted[-28]  # Son 28 gün validation
+    train_end_date = actual_dates_sorted[-29]  # Train sonu
     
-    print(f"   • Toplam {len(all_dates_sorted)} gün, split tarihi: {split_date.strftime('%Y-%m-%d')}")
+    print(f"   • Toplam {len(actual_dates_sorted)} gün, split tarihi: {split_date.strftime('%Y-%m-%d')}")
     
     # 5. Train ve validation setlerini oluştur
     print("\n🔄 5. Train ve validation setleri oluşturuluyor...")
@@ -189,7 +190,7 @@ def create_m5_subset():
     print("\n📋 ÖZET BİLGİLER")
     print("=" * 50)
     print(f"• Seçilen ürünler: {', '.join(complete_df['item_id'].unique())}")
-    print(f"• Toplam gün sayısı: {len(all_dates_sorted)}")
+    print(f"• Toplam gün sayısı: {len(actual_dates_sorted)}")
     print(f"• Train gün sayısı: {len(train_df.reset_index()['date'].unique())}")
     print(f"• Validation gün sayısı: {len(valid_df.reset_index()['date'].unique())}")
     print(f"• Ortalama günlük satış: {daily_total['sales'].mean():.1f}")
