@@ -1,0 +1,208 @@
+# ====================================
+# M5 Forecasting Project .gitignore
+# ====================================
+
+# ====================================
+# Python
+# ====================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+
+# MLflow credentials
+.mlflow_credentials
+
+# ====================================
+# Large Files and Outputs
+# ====================================
+# Large data files (>100MB should use Git LFS or external storage)
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+*.rar
+
+# Video and audio files
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.mp3
+*.wav
+*.flac
+
+# Large images
+*.tiff
+*.tif
+*.raw
+
+# ====================================
+# Development and Testing
+# ====================================
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+htmlcov/
+test-results/
+coverage/
+
+# Profiling
+*.prof
+*.lprof
+
+# Benchmarking
+benchmark_results/
+
+# ====================================
+# Project Specific Exceptions
+# ====================================
+# Keep these important files even if they match patterns above
+!README.md
+!STRUCTURE.md
+!DOCKER_README.md
+!requirements.txt
+!Dockerfile
+!docker-compose.yml
+!.gitignore
+
+# Keep small sample datasets for testing
+!*sample*.csv
+!*test*.csv
+!*demo*.csv
+
+# Keep small configuration files
+!*config*.json
+!*config*.yaml
+!*config*.yml
+
+# ====================================
+# Generated Documentation
+# ====================================
+# Sphinx
+docs/_build/
+docs/source/_autosummary/
+
+# MkDocs
+site/
+
+# GitBook
+_book/
+
+# ====================================
+# Backup Files
+# ====================================
+*.bak
+*.backup
+*.old
+*.orig
+*~
+.#*
+#*#
+
+# ====================================
+# Logs and Debugging
+# ====================================
+*.log
+*.out
+*.err
+logs/
+log/
+
+# Debug files
+debug/
+.debug/
+core.*
+
+# ====================================
+# Performance and Profiling
+# ====================================
+# Python profiling
+*.pstats
+*.prof
+
+# Memory profiling
+*.mprof
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Data files (tüm veri dosyalarını ignore et)
+data/*
+*.csv
+*.json
+*.xlsx
+*.parquet
+*.feather
+
+# ====================================
+# End of .gitignore
+# ====================================
