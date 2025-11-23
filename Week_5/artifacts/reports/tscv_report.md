@@ -1,6 +1,6 @@
 # Time Series Cross-Validation Raporu
 
-**Tarih:** 2025-11-24 01:51:21
+**Tarih:** 2025-11-24 02:23:39
 **Method:** Rolling-Origin Cross-Validation
 
 ## Neden Shuffle CV Olmaz?
