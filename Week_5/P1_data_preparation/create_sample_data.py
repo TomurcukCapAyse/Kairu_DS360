@@ -73,6 +73,19 @@ def create_sample_m5_data():
                 # Ürün kategorisi (basit)
                 dept_id = f'DEPT_{(item_counter % 3) + 1}'
                 cat_id = f'CAT_{(item_counter % 2) + 1}'
+                
+                # ID string
+                id_str = f'{item_id}_{dept_id}_{cat_id}_{store_id}_{state}'
+                
+                # Base demand (ürün bazlı)
+                base_demand = np.random.randint(5, 50)
+                
+                # Satış trendi ve mevsimsellik
+                trend = np.linspace(0, base_demand * 0.2, n_days)
+                
+                # Haftalık mevsimsellik
+                weekly_pattern = []
+                for d in date_range:
                     if d.weekday() >= 5:  # Cumartesi-Pazar
                         weekly_pattern.append(1.3)
                     else:
