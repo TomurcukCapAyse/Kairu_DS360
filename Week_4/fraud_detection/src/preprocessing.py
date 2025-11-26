@@ -2,16 +2,6 @@
 Feature Scaling ve Encoding utilities
 Fraud detection için veri ön işleme araçları
 """
-"""
-Cleaned and fixed preprocessing utilities for fraud_detection.
-This file is a drop-in replacement candidate for `preprocessing.py`.
-Key fixes:
-- Per-column LabelEncoder handling
-- Robust OneHotEncoder fallback for sklearn versions
-- Safe transform with unknown labels mapped to -1
-- visualize_distributions saving uses pathlib.Path and creates parent dir
-- No non-breaking spaces; normalized whitespace
-"""
 
 import pandas as pd
 import numpy as np
