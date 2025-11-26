@@ -19,16 +19,16 @@ INFO: Full pipeline completed successfully!
 
 ## 📋 İçindekiler
 
-- #-özellikler
-- #-dataset
-- #-kurulum
-- #-hızlı-başlangıç
-- #-pipeline-bileşenleri
-- #-kullanım
-- #-konfigürasyon
-- #-cicd-pipeline
-- #-proje-yapısı
-- #-sonuçlar
+- özellikler
+- dataset
+- kurulum
+- hızlı-başlangıç
+- pipeline-bileşenleri
+- kullanım
+- konfigürasyon
+- cicd-pipeline
+- proje-yapısı
+- sonuçlar
 
 ## ✨ Özellikler
 
