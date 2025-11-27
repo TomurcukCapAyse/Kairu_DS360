@@ -188,7 +188,7 @@ class BasitMarketAnalizi:
             
             # Kural 1: urun1 → urun2
             urun1_sayi = self.urun_sayilari[urun1]
-            confidence1 = birlikte_sayi / urun1_sayi
+            confidence1 = birlikte_sayi / urun1_sayi          # Ekmekten süte
             
             if confidence1 >= min_confidence:
                 lift1 = confidence1 / (self.urun_sayilari[urun2] / toplam_sepet)
@@ -202,7 +202,7 @@ class BasitMarketAnalizi:
             
             # Kural 2: urun2 → urun1
             urun2_sayi = self.urun_sayilari[urun2]
-            confidence2 = birlikte_sayi / urun2_sayi
+            confidence2 = birlikte_sayi / urun2_sayi            # Sütten ekmeğe
             
             if confidence2 >= min_confidence:
                 lift2 = confidence2 / (self.urun_sayilari[urun1] / toplam_sepet)
