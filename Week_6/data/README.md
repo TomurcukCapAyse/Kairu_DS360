@@ -13,8 +13,8 @@ Bu projede market basket analysis ve association rules için aşağıdaki Kaggle
 
 ### Secondary Dataset: Market Basket Analysis Data
 - **Kaynak**: https://www.kaggle.com/datasets/ahmtcnbs/datasets-for-appiori
-- **Format**: CSV/ZIP  
-- **Kullanım**: Apriori algorithm demonstration için tasarlanmış
+- **Format**: CSV/ZIP
+- **Kullanım**: Apriori algorithm demonstration için tasarlanmış.
 
 ## Dataset Download Instructions
 
